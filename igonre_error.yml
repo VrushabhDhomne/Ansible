@@ -1,0 +1,11 @@
+- name: Ignore_Error
+  hosts: all 
+  tasks:
+    - name: ignore_error
+      shell: ps -aux | grep java | grep -v java
+      ignore_errors: yes
+
+
+    - name: Run the process
+      shell: sudo yum install httpd -y
+      

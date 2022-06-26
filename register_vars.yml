@@ -1,0 +1,18 @@
+- name: register_vars
+  hosts: all
+  tasks: 
+    - name: shell_command
+      shell: uptime
+      register: OUT
+
+    - name: Output
+      debug: 
+        msg: "{{OUT.stdout}}"
+
+    - name: CMD
+      shell: pwd
+      register: DIR
+
+    - name: CMD_out
+      debug:
+        msg: "{{DIR.stdout}}"
