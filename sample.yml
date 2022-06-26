@@ -1,0 +1,12 @@
+name: sample
+fav-sports:
+  - football
+  - Karaate
+Hockey:
+  - Indoor
+  - outdoor
+Tennis: 
+  - Indoor:
+    - Table Tennis
+    - Matt Tennis
+  - Outdoor 

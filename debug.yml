@@ -1,0 +1,11 @@
+name: Debug-play
+hosts: all
+tasks: 
+  - name: Debug-module
+    debug:
+      - welcome to Nagpur
+      - welcome to Amla
+
+  
+    
+  
