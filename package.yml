@@ -1,0 +1,15 @@
+- name: package installtion
+  hosts: all
+  become: yes
+  tasks: 
+    - name: install package
+      yum:
+        state: present
+        name: "{{item}}"
+      loop: 
+        - wget
+        - java
+        - vim
+        - tree
+        - curl
+        - unzip

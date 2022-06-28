@@ -1,0 +1,12 @@
+- name: Loops in ansible
+  hosts: all
+  tasks:
+    - name: loops 
+      debug: 
+        msg: List of students {{item}}
+      loop: 
+        - mangesh
+        - amol
+        - vrushabh
+        - pritam
+        - sushant
