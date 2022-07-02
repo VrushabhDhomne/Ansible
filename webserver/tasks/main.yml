@@ -1,0 +1,22 @@
+- name: httpd install
+  yum: 
+    state: present
+    name: httpd
+
+
+- name: copy proxy file
+  copy: 
+    src: proxy.conf
+    dest: "{{httpd_conf}}/proxy.conf"
+
+
+- name: copy html content
+  copy: 
+    src: index.html
+    dest: "{{httpdroot_dir}}/index.html"
+
+
+- name: start httpd service
+  service: 
+    name: httpd
+    state: started
