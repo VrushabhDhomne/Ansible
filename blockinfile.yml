@@ -1,0 +1,14 @@
+- name: blockinfile module
+  hosts: all
+  become: yes
+  tasks: 
+    - name: block in file
+      blockinfile: 
+         path: /etc/httpd/abc.conf
+         block: |
+           <virtualhost*:80>
+           servername localhost
+           serveralias www.localhost.com
+           decumentroot /var/www/html
+           </virtualhost>
+

@@ -1,0 +1,12 @@
+- name: split module
+  hosts: all
+  vars:
+    tomcat_url: https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.81/bin/apache-tomcat-8.5.81.tar.gz 
+    tomcat_url_split: "{{ tomcat_url.split('/') | last }}" 
+    tomcat_dir: "{{ tomcat_url_split | regex_replace ('.tar.gz','')}}"
+
+
+  tasks: 
+    - name: split_url
+      debug:
+        msg: "{{tomcat_dir}}"

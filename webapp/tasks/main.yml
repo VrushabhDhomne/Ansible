@@ -1,0 +1,31 @@
+- name: Download Java
+  package: 
+    name: "{{item}}"
+    state: present
+  loop:
+    - java
+  
+
+- name: download tomcat
+  unarchive:
+    src: "{{tomcat_url}}"
+    dest: "{{tomcat_dir}}"
+    remote_src: true
+
+# - name: copy context.xml
+#   become: yes
+#   template: 
+#     src: context.xml
+#     dest: "{{tomcat_dir}}/conf/context.xml"
+#     force: yes
+
+
+- name: copy var file
+  get_url: 
+    url: https://tomcat-02.s3.us-east-2.amazonaws.com/studentapp-2.2-SNAPSHOT.war
+    dest: "{{tomcat_dir}}/webapps/"
+    
+
+
+- name: start tomcat
+  shell: "nohup {{tomcat_dir}}/bin/catalina.sh run"
