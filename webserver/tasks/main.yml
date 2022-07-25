@@ -8,6 +8,8 @@
   copy: 
     src: proxy.conf
     dest: "{{httpd_conf}}/proxy.conf"
+  notify: 
+    - httpd
 
 
 - name: copy html content
@@ -20,3 +22,6 @@
   service: 
     name: httpd
     state: started
+
+
+
